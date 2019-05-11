@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html
+    head
+       
+        title Weather Page
+        link(rel="stylesheet", href="./css/semantic.min.css")
+        link(rel="stylesheet", href="./css/style.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?familyABeeZee")
+
+    body
+        div.ui.grid
+            div.twelve.wide.centered.column
+                div#logo Weatherly
+
+                div#searchbar
+                    div.ui.action.input
+                    input#searchcity(placeholder="Enter a locaton", type="text", name="cityname")
+                    button(onClick="search()").ui.secondary.button Search
+
+                    div.results
+                        div#temperature 23&deg C
+                        div#city Joburg
+                        div#description
+                            span#condition Clear and Warm.
+
+        script(type="text/javascript", src="./pug/weather.js")                    
