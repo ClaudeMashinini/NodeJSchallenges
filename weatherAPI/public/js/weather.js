@@ -1,13 +1,15 @@
-const url = "https://api.apixu.com/v1/current.json?key=6863702ab6d442279db13037191105&q=Johannesburg"
+const url = "https://api.apixu.com/v1/current.json?key=b470f80b1fd44287bd2195524180707&q="
 
 const search = function(){
-    const place = document.getElementById("searchcity").value
-    const request = async() => {
+    let place = document.getElementById("searchcity").value
+    console.log(place)
+    const request = async() =>  {
         const response = await fetch(url+place)
         const json = await response.json()
-        document.getElementById("temperature").innerHTML=json.current.temp_c + "&deg C"
-        document.getElementById("condition").innerHTML=json.current.condition.text
-        document.getElementById("city").innerHTML=json.location.name+ ", "+json.location.country
+        console.log(json)
+        document.getElementById("temperature").innerHTML = json.current.temp_c + "&deg C"
+        document.getElementById("condition").innerHTML = json.current.condition.text
+        document.getElementById("city").innerHTML = json.location.name +", "+json.location.country
     }
     request()
 }
