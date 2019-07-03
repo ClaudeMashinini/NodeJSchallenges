@@ -1,0 +1,15 @@
+{
+  "name": "weatherAPI",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Claude Dumisani Mashinini",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.19.0",
+    "pug": "^2.0.3"
+  },
+  "scripts": {
+    "start": "nodemon --watch src/ --watch public -e js,pug,sass"
+  }
+}
