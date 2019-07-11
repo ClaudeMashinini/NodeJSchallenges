@@ -1,19 +1,26 @@
 const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
 const app = express();
-const mongoose = require("mongoose");
-require("dotenv/config");
-const routingPosts = require("./router/posts");
+const parser = require("body-parser");
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use("/posts", routingPosts);
+//importing the respective routes
+const viewAllRoute = require("./routes/viewAll");
+const viewByIdRoute = require("./routes/viewById");
+const updateRoute = require("./routes/update");
+const deleteAllRoute = require("./routes/deleteAll");
+const deleteByIdRoute = require("./routes/deleteById");
+const addNewRoute = require("./routes/addOne");
 
-mongoose.connect(process.env.p_deets, { useNewUrlParser: true }, () => {
-  console.log("ready for liftoff");
-});
+app.use(parser.json());
+app.use(parser.urlencoded({ extended: false }));
+
+//using the routes through express to fulfill the requests
+app.use(viewAllRoute);
+app.use(viewByIdRoute);
+app.use(updateRoute);
+app.use(deleteAllRoute);
+app.use(deleteByIdRoute);
+app.use(addNewRoute);
 
 app.listen(8888, () => {
-  console.log("Liftoff");
+  console.log("Server running");
 });
